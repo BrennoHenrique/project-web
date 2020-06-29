@@ -1,0 +1,135 @@
+.box {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 80px black;
+    z-index: 2;
+    transition: .1s;
+}
+
+.box:hover {
+    background-color: white;
+}
+
+.box:hover .line,
+.box:hover .line:before,
+.box:hover .line:after {
+    transition: .5s cubic-bezier(0.18, 0.46, 0.29, 0.94);
+    border-color: black;
+}
+
+#check:checked~label .box {
+    background-color: rgb(245, 176, 176);
+}
+
+.line {
+    transition: .5s cubic-bezier(0.18, 0.46, 0.29, 0.94);
+    display: block;
+    position: relative;
+    top: 24px;
+    margin: auto;
+    width: 30px;
+    height: 2px;
+    border: 1px solid #FFF;
+}
+
+.line:before,
+.line:after {
+    transition: .5s cubic-bezier(0.18, 0.46, 0.29, 0.94);
+    display: block;
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #FFF;
+}
+
+.line:before {
+    bottom: 6px;
+}
+
+.line:after {
+    top: 6px;
+}
+
+#check:checked~label div .line {
+    transform: rotate(45deg);
+}
+
+#check:checked~label div .line:before,
+#check:checked~label div .line:after {
+    top: 0px;
+    bottom: 0px;
+    transform: rotate(90deg);
+}
+
+.menu-lateral {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    background-color: #000;
+    transition: .5s;
+    z-index: 1;
+}
+
+nav ul {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+nav ul a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
+    font-style: none;
+    color: white;
+}
+
+nav ul li:hover {
+    background-color: white;
+    color: black;
+}
+
+input[type="checkbox"] {
+    width: 0px;
+    height: 0px;
+    display: none;
+}
+
+#check:checked~.menu-lateral {
+    left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .menu-lateral {
+        width: 100%;
+    }
+
+    nav ul li { 
+        padding-left: 20px;
+        border-left: 50px solid black;
+    }
+    
+    nav ul li:hover {
+        border-color: rgb(82, 82, 82);
+    }
+    
+    nav ul li{
+        font-size: 25pt;
+    }
+}

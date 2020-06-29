@@ -1,0 +1,58 @@
+header {
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+    height: 210px;
+}
+
+header .logo,
+header .title {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+header .logo {
+    position: static;
+    background-color: #AAA;
+}
+
+header .title {
+    text-align: center;
+    padding: 5%;
+}
+
+header .title h1 {
+    font-family: 'MuseoModerno', cursive;
+}
+
+header .title h1 {
+    font-size: 25pt;
+}
+
+header .logo {
+    background: url('../img/img-front-back.png') left center no-repeat;
+}
+
+@media only screen and (max-width: 870px) {
+    header {
+        height: 350px;
+    }
+
+    header .logo,
+    header .title {
+        float: none;
+        width: 100%;
+    }
+
+    header .logo {
+        width: 100%;
+        height: 210px;
+        background-position: center center;
+    }
+
+    header .title {
+        height: 140px;
+    }
+
+}

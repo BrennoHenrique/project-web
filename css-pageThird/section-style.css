@@ -1,0 +1,74 @@
+section {
+    background-color: rgba(245, 245, 245, 0.990);
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+}
+
+section .conteudo {
+    width: 100%;
+    height: auto;
+    padding: 40px 30px 40px 30px;
+    font-size: 16pt;
+}
+
+section div .resumo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #CCC;
+}
+
+section .box-front-back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #CCC;
+}
+
+section div .front {
+    width: 46%;
+    height: auto;
+    padding-right: 4%;
+    border-right: 1px solid #CCC;
+}
+
+section div .back {
+    width: 46%;
+    height: auto;
+    padding-left: 4%;
+}
+
+.front h3,
+.back h3,
+.full-stack h3 {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 870px) {
+
+    section .box-front-back {
+        flex-direction: column;
+    }
+
+    section div .front {
+        width: 100%;
+        height: 50%;
+        padding-right: 0%;
+        border-right: none;
+        margin-bottom: 20px;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid #CCC;
+    }
+
+    section div .back {
+        width: 100%;
+        height: 50%;
+        padding-left: 0%;
+    }
+}
