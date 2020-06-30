@@ -2,431 +2,493 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial;
-            font-size: 20pt;
-            scroll-behavior: smooth;
-        }
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: Arial;
+         font-size: 20pt;
+         scroll-behavior: smooth;
+         word-wrap: break-word; /* Utilizado para quebrar a palavra quando chegar ao limite do width */
+      }
 
-        .topo {
-            margin: auto;
-            margin-top: 50px;
-            width: 90%;
-            height: 200px;
-            max-width: 800px;
-        }
+      .topo {
+         margin: auto;
+         margin-top: 50px;
+         width: 90%;
+         height: 200px;
+         max-width: 800px;
+      }
 
-        .logo,
-        .menu {
-            width: 50%;
+      .logo,
+      .menu {
+         width: 50%;
+         height: 100%;
+         float: left;
+      }
+
+      .logo {
+         background-color: #DDD;
+      }
+
+      .menu {
+         background-color: #CCC;
+      }
+
+      .section,
+      .footer {
+         width: 90%;
+         height: 200px;
+         max-width: 800px;
+         margin: auto;
+      }
+
+      .section {
+         scroll-behavior: smooth;
+         background-color: #AAA;
+         text-align: center;
+         padding: 50px 0;
+         scroll-behavior: smooth;
+      }
+
+      .section input {
+         font-size: 20pt;
+         padding: 10px;
+         outline: none;
+         width: 75%;
+         height: 50px;
+      }
+
+      .footer {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-color: #BBB;
+      }
+
+      .box {
+         transition: .5s;
+         width: 60px;
+         height: 60px;
+         background-color: orange;
+      }
+
+      #boxcheck {
+         display: none;
+      }
+
+      input:checked~label .box {
+         width: 180px;
+         height: 180px;
+
+         border-top-right-radius: 0%;
+         border-bottom-left-radius: 0%;
+
+         border-top-left-radius: 50%;
+         border-bottom-right-radius: 50%;
+
+         animation: animationLabel 2s infinite normal;
+      }
+
+      @keyframes animationLabel {
+         50% {
+            border-top-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+
+            border-top-left-radius: 0%;
+            border-bottom-right-radius: 0%;
+         }
+      }
+
+      @media only screen and (max-width: 800px) {
+
+         .topo,
+         .section,
+         .footer {
+            width: 100%;
+         }
+
+         .logo,
+         .menu {
+            width: 100%;
+            height: 50%;
+         }
+      }
+
+      nav {
+         width: 100%;
+         height: 50px;
+         background-color: black;
+         font-family: Arial;
+         top: 0;
+         position: fixed;
+      }
+
+      nav ul {
+         list-style: none;
+         position: relative;
+      }
+
+      nav ul li {
+         float: left;
+         width: 100px;
+         border-right: 1px solid rgba(245, 245, 245, 0.192);
+      }
+
+      nav a {
+         font-size: 10pt;
+         height: 50px;
+         padding: 15px;
+         display: block;
+         text-decoration: none;
+         text-align: center;
+         background-color: black;
+         color: #fff;
+      }
+
+      nav ul ul {
+         position: absolute;
+         visibility: hidden;
+      }
+
+      nav ul li:hover ul {
+         visibility: visible;
+      }
+
+      nav a:hover {
+         background-color: #f4f4f4;
+         color: #555;
+      }
+
+      nav ul ul li {
+         border-bottom: 1px solid rgb(0, 143, 214);
+         float: none;
+      }
+
+      nav ul ul li a {
+         background-color: #069;
+      }
+
+      #check {
+         display: none;
+      }
+
+      .btn-menu {
+         visibility: hidden;
+         width: 50px;
+         height: 50px;
+         background-color: black;
+         position: fixed;
+         z-index: 1;
+      }
+
+      .btn-menu:hover {
+         background-color: white;
+      }
+
+      .btn-menu:hover .line,
+      .btn-menu:hover .line:before,
+      .btn-menu:hover .line:after {
+         border-color: black;
+      }
+
+      #check:checked~label .btn-menu {
+         background-color: rgb(245, 176, 176);
+      }
+
+      #check:checked~label div .line {
+         transform: rotate(45deg);
+      }
+
+      #check:checked~label div .line:before,
+      #check:checked~label div .line:after {
+         top: 0px;
+         bottom: 0px;
+         transform: rotate(90deg);
+      }
+
+
+      .line {
+         width: 30px;
+         border: 1px solid white;
+         display: block;
+         position: absolute;
+         top: 24px;
+         left: 10px;
+      }
+
+      .line:before,
+      .line:after {
+         content: '';
+         width: 28px;
+         border: 1px solid white;
+         display: block;
+         position: absolute;
+         left: -1px;
+      }
+
+      .line:before {
+         bottom: 5px;
+      }
+
+      .line:after {
+         top: 5px;
+      }
+
+      scroll-container {
+         display: block;
+         width: 100%;
+         height: 150px;
+         overflow-y: scroll;
+      }
+
+      scroll-page {
+         height: 100%;
+      }
+
+      @media only screen and (max-width: 600px) {
+         .topo {
+            margin-top: 0;
+         }
+
+         .line,
+         .line:before,
+         .line:after,
+         .btn-menu {
+            transition: all .5s cubic-bezier(0.18, 0.46, 0.29, 0.94);
+         }
+
+         nav {
+            width: 100%;
             height: 100%;
-            float: left;
-        }
+            position: fixed;
+            left: -100%;
+            transition: all .3s linear;
+         }
 
-        .logo {
-            background-color: #DDD;
-        }
-
-        .menu {
-            background-color: #CCC;
-        }
-
-        .section,
-        .footer {
-            width: 90%;
-            height: 200px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .section {
-            scroll-behavior: smooth;
-            background-color: #AAA;
-            text-align: center;
-            padding: 50px 0;
-            scroll-behavior: smooth;
-        }
-
-        .section input {
-            font-size: 20pt;
-            padding: 10px;
-            outline: none;
-            width: 75%;
-            height: 50px;
-        }
-
-        .footer {
+         nav .menu-nav {
+            margin-top: 60px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #BBB;
-        }
+            flex-direction: column;
+         }
 
-        .box {
-            transition: .5s;
-            width: 60px;
-            height: 60px;
-            background-color: orange;
-        }
-
-        #boxcheck {
-            display: none;
-        }
-
-        input:checked~label .box {
-            width: 180px;
-            height: 180px;
-
-            border-top-right-radius: 0%;
-            border-bottom-left-radius: 0%;
-
-            border-top-left-radius: 50%;
-            border-bottom-right-radius: 50%;
-
-            animation: animationLabel 2s infinite normal;
-        }
-
-        @keyframes animationLabel {
-            50% {
-                border-top-right-radius: 50%;
-                border-bottom-left-radius: 50%;
-
-                border-top-left-radius: 0%;
-                border-bottom-right-radius: 0%;
-            }
-        }
-
-        @media only screen and (max-width: 800px) {
-
-            .topo,
-            .section,
-            .footer {
-                width: 100%;
-            }
-
-            .logo,
-            .menu {
-                width: 100%;
-                height: 50%;
-            }
-        }
-
-        nav {
+         nav .menu-nav .menus-nav {
+            border-bottom: 1px solid rgba(245, 245, 245, 0.192);
             width: 100%;
-            height: 50px;
-            background-color: black;
-            font-family: Arial;
-            top: 0;
-            position: fixed;
-        }
-
-        nav ul {
-            list-style: none;
-            position: relative;
-        }
-
-        nav ul li {
-            float: left;
-            width: 100px;
-            border-right: 1px solid rgba(245, 245, 245, 0.192);
-        }
-
-        nav a {
-            font-size: 10pt;
-            height: 50px;
-            padding: 15px;
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            background-color: black;
-            color: #fff;
-        }
-
-        nav ul ul {
-            position: absolute;
-            visibility: hidden;
-        }
-
-        nav ul li:hover ul {
-            visibility: visible;
-        }
-
-        nav a:hover {
-            background-color: #f4f4f4;
-            color: #555;
-        }
-
-        nav ul ul li {
-            border-bottom: 1px solid rgb(0, 143, 214);
             float: none;
-        }
+         }
 
-        nav ul ul li a {
-            background-color: #069;
-        }
-
-        #check {
-            display: none;
-        }
-
-        .btn-menu {
-            visibility: hidden;
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            position: fixed;
-            z-index: 1;
-        }
-
-        .btn-menu:hover {
-            background-color: white;
-        }
-
-        .btn-menu:hover .line,
-        .btn-menu:hover .line:before,
-        .btn-menu:hover .line:after {
-            border-color: black;
-        }
-
-        #check:checked~label .btn-menu {
-            background-color: rgb(245, 176, 176);
-        }
-
-        #check:checked~label div .line {
-            transform: rotate(45deg);
-        }
-
-        #check:checked~label div .line:before,
-        #check:checked~label div .line:after {
-            top: 0px;
-            bottom: 0px;
-            transform: rotate(90deg);
-        }
-
-
-        .line {
-            width: 30px;
-            border: 1px solid white;
-            display: block;
-            position: absolute;
-            top: 24px;
-            left: 10px;
-        }
-
-        .line:before,
-        .line:after {
-            content: '';
-            width: 28px;
-            border: 1px solid white;
-            display: block;
-            position: absolute;
-            left: -1px;
-        }
-
-        .line:before {
-            bottom: 5px;
-        }
-
-        .line:after {
-            top: 5px;
-        }
-
-        scroll-container {
-            display: block;
+         nav ul li ul,
+         nav ul li ul li {
             width: 100%;
-            height: 150px;
-            overflow-y: scroll;
-        }
+         }
 
-        scroll-page {
-            height: 100%;
-        }
+         nav ul ul {
+            transition: all .4s;
+            position: static;
+            overflow: hidden;
+            max-height: 0;
+         }
 
-        @media only screen and (max-width: 600px) {
-            .topo {
-                margin-top: 0;
-            }
+         nav ul li:hover ul {
+            transition: all .4s;
+            height: auto;
+            max-height: none;
+         }
 
-            .line,
-            .line:before,
-            .line:after,
-            .btn-menu {
-                transition: all .5s cubic-bezier(0.18, 0.46, 0.29, 0.94);
-            }
+         nav a {
+            width: 100%;
+            height: 60px;
+            font-size: 20pt;
+            padding: auto;
+         }
 
-            nav {
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                left: -100%;
-                transition: all .3s linear;
-            }
+         .btn-menu {
+            visibility: visible;
+         }
 
-            nav .menu-nav {
-                margin-top: 60px;
-                display: flex;
-                flex-direction: column;
-            }
-
-            nav .menu-nav .menus-nav {
-                border-bottom: 1px solid rgba(245, 245, 245, 0.192);
-                width: 100%;
-                float: none;
-            }
-
-            nav ul li ul,
-            nav ul li ul li {
-                width: 100%;
-            }
-
-            nav ul ul {
-                transition: all .4s;
-                position: static;
-                overflow: hidden;
-                max-height: 0;
-            }
-
-            nav ul li:hover ul {
-                transition: all .4s;
-                height: auto;
-                max-height: none;
-            }
-
-            nav a {
-                width: 100%;
-                height: 60px;
-                font-size: 20pt;
-                padding: auto;
-            }
-
-            .btn-menu {
-                visibility: visible;
-            }
-
-            #check:checked~nav {
-                left: 0;
-            }
-        }
-    </style>
+         #check:checked~nav {
+            left: 0;
+         }
+      }
+   </style>
 
 </head>
 
 <body>
 
-    <input type="checkbox" name="check" id="check">
+   <input type="checkbox" name="check" id="check">
 
-    <label for="check">
-        <div class="btn-menu">
-            <span class="line"></span>
-        </div>
-    </label>
+   <label for="check">
+      <div class="btn-menu">
+         <span class="line"></span>
+      </div>
+   </label>
 
-    <nav>
-        <ul class="menu-nav">
-            <li class="menus-nav">
-                <a href="#">Home</a>
-            </li>
+   <nav>
+      <ul class="menu-nav">
+         <li class="menus-nav">
+            <a href="#">Home</a>
+         </li>
 
-            <li class="menus-nav">
-                <a>Páginas</a>
-                <ul>
-                    <li><a href="./index.html">Index</a></li>
-                    <li><a href="./RASCUNHO.html">Rascunho</a></li>
-                </ul>
-            </li>
+         <li class="menus-nav">
+            <a>Páginas</a>
+            <ul>
+               <li><a href="./index.html">Index</a></li>
+               <li><a href="./RASCUNHO.html">Rascunho</a></li>
+            </ul>
+         </li>
 
-            <li class="menus-nav">
-                <a>Seções</a>
-                <ul>
-                    <scroll-container>
-                        <scroll-page>
-                            <li><a href="#secao1">Seção 01</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao2">Seção 02</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao3">Seção 03</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao4">Seção 04</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao5">Seção 05</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao6">Seção 06</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao7">Seção 07</a></li>
-                        </scroll-page>
-                        <scroll-page>
-                            <li><a href="#secao8">Seção 08</a></li>
-                        </scroll-page>
-                    </scroll-container>
-                </ul>
-            </li>
+         <li class="menus-nav">
+            <a>Seções</a>
+            <ul>
+               <scroll-container>
+                  <scroll-page>
+                     <li><a href="#secao1">Seção 01</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao2">Seção 02</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao3">Seção 03</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao4">Seção 04</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao5">Seção 05</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao6">Seção 06</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao7">Seção 07</a></li>
+                  </scroll-page>
+                  <scroll-page>
+                     <li><a href="#secao8">Seção 08</a></li>
+                  </scroll-page>
+               </scroll-container>
+            </ul>
+         </li>
 
-            <li class="menus-nav">
-                <a href="#">Contato</a>
-            </li>
-        </ul>
-    </nav>
+         <li class="menus-nav">
+            <a href="#">Contato</a>
+         </li>
 
-    <div class="topo">
-        <div class="logo"></div>
-        <div class="menu"></div>
-    </div>
+         <li class="menus-nav">
+            <div class="box-radius">
+               <div class="circle"></div>
+            </div>
+         </li>
+      </ul>
+   </nav>
 
-    <div class="section">
-        <form action="pageSecond.html" method="get">
-            <input type="email" name="email" id="aemail" class="semail" minlength="10" maxlength="50"
-                placeholder="Email" autofocus required autocomplete="off" />
-            <input type="submit" value="Enviar" />
-        </form>
-    </div>
+   <style>
+      .box-radius {
+         display: flex;
+         align-items: center;
+         margin: 12.5px auto;
+         width: 60px;
+         height: 24px;
+         padding: 2px 5px 2px 5px;
+         border-radius: 100px;
+         background-color: white;
+         position: relative;
+      }
 
-    <div class="section" id="secao1">
-        <p>Seção 1</p>
-    </div>
-    <div class="section" id="secao2">
-        <p>Seção 2</p>
-    </div>
-    <div class="section" id="secao3">
-        <p>Seção 3</p>
-    </div>
-    <div class="section" id="secao4">
-        <p>Seção 4</p>
-    </div>
-    <div class="section" id="secao5">
-        <p>Seção 5</p>
-    </div>
-    <div class="section" id="secao6">
-        <p>Seção 6</p>
-    </div>
-    <div class="section" id="secao7">
-        <p>Seção 7</p>
-    </div>
-    <div class="section" id="secao8">
-        <p>Seção 8</p>
-    </div>
+      .box-radius:after {
+         display: block;
+         content: '';
+         width: 60px;
+         height: 25px;
+         border-radius: 100px;
+         background-color: transparent;
+         position: absolute;
+         left: 0px;
+      }
 
-    <div class="footer">
-        <input type="checkbox" name="check" id="boxcheck" />
+      .circle {
+         transition: all .1s linear;
+         border-radius: 50%;
+         background-color: black;
+         width: 20px;
+         height: 20px;
+         border: 1px solid transparent;
+      }
+   </style>
 
-        <label for="boxcheck">
-            <div class="box"></div>
-        </label>
-    </div>
+   <div class="topo">
+      <div class="logo"></div>
+      <div class="menu"></div>
+   </div>
 
+   <div class="section">
+      <form action="pageSecond.html" method="get">
+         <input type="email" name="email" id="aemail" class="semail" minlength="10" maxlength="50" placeholder="Email"
+            autofocus required autocomplete="off" />
+         <input type="submit" value="Enviar" />
+      </form>
+   </div>
+
+   <div class="section" id="secao1">
+      <p>Seção 1</p>
+   </div>
+   <div class="section" id="secao2">
+      <p>Seção 2</p>
+   </div>
+   <div class="section" id="secao3">
+      <p>Seção 3</p>
+   </div>
+   <div class="section" id="secao4">
+      <p>Seção 4</p>
+   </div>
+   <div class="section" id="secao5">
+      <p>Seção 5</p>
+   </div>
+   <div class="section" id="secao6">
+      <p>Seção 6</p>
+   </div>
+   <div class="section" id="secao7">
+      <p>Seção 7</p>
+   </div>
+   <div class="section" id="secao8">
+      <p>Seção 8</p>
+   </div>
+
+   <div class="footer">
+      <input type="checkbox" name="check" id="boxcheck" />
+
+      <label for="boxcheck">
+         <div class="box"></div>
+      </label>
+   </div>
+
+   <script>
+      const boxRadiusElement = document.querySelector(".box-radius");
+      const circleElement = document.querySelector(".circle");
+
+      var boolean = false;
+
+      const checkOption = () => {
+         if (boolean === false) {
+            circleElement.style.marginLeft = '30px';
+            boolean = true;
+         } else {
+            circleElement.style.marginLeft = '0px';
+            boolean = false;
+         }
+
+         console.log(boolean);
+      };
+
+      boxRadiusElement.addEventListener("click", checkOption);
+      circleElement.addEventListener("click", checkOption);
+   </script>
 </body>
 
 </html>
