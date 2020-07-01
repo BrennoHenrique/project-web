@@ -390,22 +390,22 @@
 
    <style>
       .box-radius {
+         transition: all .3s cubic-bezier(0, 1.01, 0.59, 0.98);
          display: flex;
          align-items: center;
          margin: 12.5px auto;
-         width: 60px;
-         height: 24px;
-         padding: 2px 5px 2px 5px;
+         width: 2em;
+         height: 1em;
          border-radius: 100px;
-         background-color: white;
+         background-color: rgb(252, 53, 53);
          position: relative;
       }
 
-      .box-radius:after {
+      .box-radius::after {
          display: block;
          content: '';
-         width: 60px;
-         height: 25px;
+         width: 2em;
+         height: 1em;
          border-radius: 100px;
          background-color: transparent;
          position: absolute;
@@ -415,9 +415,9 @@
       .circle {
          transition: all .1s linear;
          border-radius: 50%;
-         background-color: black;
-         width: 20px;
-         height: 20px;
+         background-color: white;
+         width: 1em;
+         height: 1em;
          border: 1px solid transparent;
       }
    </style>
@@ -476,10 +476,12 @@
 
       const checkOption = () => {
          if (boolean === false) {
-            circleElement.style.marginLeft = '30px';
+            boxRadiusElement.style.backgroundColor = "rgb(0, 255, 0)";
+            circleElement.style.marginLeft = '1em';
             boolean = true;
          } else {
-            circleElement.style.marginLeft = '0px';
+            boxRadiusElement.style.backgroundColor = "rgb(252, 53, 53)";
+            circleElement.style.marginLeft = '0em';
             boolean = false;
          }
 
