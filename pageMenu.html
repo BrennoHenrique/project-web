@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css-pageMenu/menu-style.css">
+    <link rel="stylesheet" href="css-pageMenu/btn-viewMenu-style.css">
+    <link rel="stylesheet" href="css-pageMenu/btn-On-Off-style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .checkNotVisible {
+            display: none;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="checkbox" name="checkViewMenu" id="checkViewMenu" class="checkNotVisible">
+
+    <label for="checkViewMenu">
+        <div class="btn-viewMenu">
+            <span class="line"></span>
+        </div>
+    </label>
+
+    <nav class="menu-config">
+        <ul>
+            <li>
+                <input type="checkbox" name="checkInvertColor" id="checkInvertColor" class="checkNotVisible">
+                <label for="checkInvertColor">
+                    <div class="items-label">
+                        <div class="btn-On-Off"></div>
+                        <div class="text">
+                            <p>Modo escuro</p>
+                        </div>
+                    </div>
+                </label>
+            </li>
+            <li>
+
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        const bodyElement = document.querySelector("body");
+        const textElement = document.querySelector(".text");
+        const navElement = document.querySelector(".menu-config");
+        const checkInvertColorElement = document.getElementById("checkInvertColor");
+
+        checkInvertColorElement.addEventListener("click",  function () {
+            if (this.checked) {
+                navElement.style.backgroundColor = "white";
+                textElement.style.color = "black";
+                bodyElement.style.backgroundColor = "black";
+            } else {
+                navElement.style.backgroundColor = "black";
+                textElement.style.color = "white";
+                bodyElement.style.backgroundColor = "white";
+            }
+        });
+    </script>
+</body>
+
+</html>

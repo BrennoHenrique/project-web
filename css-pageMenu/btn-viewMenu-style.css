@@ -1,0 +1,57 @@
+.btn-viewMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+#checkViewMenu:checked~label .btn-viewMenu {
+    margin-top: 50px;
+}
+
+.line {
+    width: 40%;
+    border: 1px solid white;
+    background-color: white;
+    position: relative;
+}
+
+.line::before,
+.line::after {
+    content: '';
+    border: 1px solid white;
+    background-color: white;
+    position: absolute;
+}
+
+.line::before {
+    width: 150%;
+    bottom: 5px;
+    right: -5.5px;
+}
+
+.line::after {
+    width: 50%;
+    top: 5px;
+    right: 3.5px;
+}
+
+#checkViewMenu:checked~label .line::after {
+    width: 150%;
+    right: -5.5px;
+}
+
+#checkViewMenu:checked~label .line::before {
+    width: 50%;
+    right: 3.5px;
+}
+
+.btn-viewMenu,
+.line,
+.line::after,
+.line::before {
+    transition: all .4s cubic-bezier(0.34, 0.79, 0.46, 0.98);
+}
