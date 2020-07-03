@@ -31,10 +31,7 @@
     transition: all .4s;
 }
 
-.section01,
-.section02,
-.section03,
-.section04 {
+.bloco {
     width: 100vw;
     height: 100vh;
     justify-content: center;
@@ -42,20 +39,24 @@
     display: flex;
 }
 
+.bloco img {
+    width: 40%;
+}
+
 .section01 {
-    background-color: #00aaaa;
+	background-color: #7fbd42;
 }
 
 .section02 {
-    background-color: #eeaaaa;
+	background-color: #69f;
 }
 
 .section03 {
-    background-color: #aaaa00;
+	background-color: #faa;
 }
 
 .section04 {
-    background-color: #aa00aa;
+	background-color: #414950;
 }
 
 #rd_section02:checked~.sections  {
