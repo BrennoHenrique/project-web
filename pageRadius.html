@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css-pageRadius/style.css">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .rd_clear {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="labels">
+        <label for="rd_section01">
+                Section 01
+        </label>
+
+        <label for="rd_section02">
+                Section 02
+        </label>
+
+        <label for="rd_section03">
+                Section 03
+        </label>
+
+        <label for="rd_section04">
+                Section 04
+        </label>
+    </nav>
+
+    <div class="scroll">
+
+        <input type="radio" name="rd_sections" id="rd_section01" class="rd_clear" checked>
+        <input type="radio" name="rd_sections" id="rd_section02" class="rd_clear">
+        <input type="radio" name="rd_sections" id="rd_section03" class="rd_clear">
+        <input type="radio" name="rd_sections" id="rd_section04" class="rd_clear">
+
+        <section class="sections">
+            <section class="section01"></section>
+            <section class="section02"></section>
+            <section class="section03"></section>
+            <section class="section04"></section>
+        </section>
+
+    </div>
+</body>
+
+</html>

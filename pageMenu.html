@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all .2s;
         }
 
         .checkNotVisible {
@@ -26,13 +27,13 @@
 <body>
 
     <input type="checkbox" name="checkViewMenu" id="checkViewMenu" class="checkNotVisible">
-
+    
     <label for="checkViewMenu">
         <div class="btn-viewMenu">
             <span class="line"></span>
         </div>
     </label>
-
+    
     <nav class="menu-config">
         <ul>
             <li>
@@ -52,20 +53,15 @@
         </ul>
     </nav>
 
+    
     <script>
         const bodyElement = document.querySelector("body");
-        const textElement = document.querySelector(".text");
-        const navElement = document.querySelector(".menu-config");
         const checkInvertColorElement = document.getElementById("checkInvertColor");
 
         checkInvertColorElement.addEventListener("click",  function () {
             if (this.checked) {
-                navElement.style.backgroundColor = "white";
-                textElement.style.color = "black";
-                bodyElement.style.backgroundColor = "black";
+                bodyElement.style.backgroundColor = "rgb(26, 26, 26)";
             } else {
-                navElement.style.backgroundColor = "black";
-                textElement.style.color = "white";
                 bodyElement.style.backgroundColor = "white";
             }
         });

@@ -1,0 +1,71 @@
+.labels {
+    width: 100%;
+	height: 50px;
+	position: fixed;
+	display: flex;
+}
+
+.labels label {
+    padding: 10px 0;
+	flex-grow: 1;
+	cursor: pointer;
+	transition: all .4s;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 100%;
+	color: #fff;
+}
+
+.labels label:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.scroll {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sections {
+    transition: all .4s;
+}
+
+.section01,
+.section02,
+.section03,
+.section04 {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.section01 {
+    background-color: #00aaaa;
+}
+
+.section02 {
+    background-color: #eeaaaa;
+}
+
+.section03 {
+    background-color: #aaaa00;
+}
+
+.section04 {
+    background-color: #aa00aa;
+}
+
+#rd_section02:checked~.sections  {
+    margin-top: -100vh;
+}
+
+#rd_section03:checked~.sections  {
+    margin-top: -200vh;
+}
+
+#rd_section04:checked~.sections  {
+    margin-top: -300vh;
+}

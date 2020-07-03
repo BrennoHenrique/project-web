@@ -37,7 +37,6 @@ label {
 
 #checkInvertColor:checked~label .btn-On-Off::after {
     margin-left: 1em;
-    background-color: black;
 }
 
 #checkInvertColor:checked~label .btn-On-Off::before {
