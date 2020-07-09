@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: #EEE;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    background-color: #DDD;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    min-width: 150px;
+    min-height: 150px;
+    background-color: #CCC;
+    width: 100%;
+    height: 100%;
+    transition: 2s;
+    display: flex;
+}
+
+nav ul li span {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 5em;
+}
+
+nav ul li span::before,
+nav ul li span::after {
+    box-sizing: border-box;
+    transition: .5s;
+    display: block;
+    content: '';
+    width: 150px;
+    height: 150px;
+    border: 2px solid #c00;
+    background-color: aquamarine;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li span::before {
+    transform-origin: right;
+}
+
+nav ul li span::after {
+    transform-origin: left;
+    left: 150px;
+    transform: rotateY(90deg);
+}
+
+nav ul li:hover span::after {
+    left: 0px;
+    transform: rotateY(0deg);
+}
+
+nav ul li:hover span::before {
+    margin-left: -150px;
+    transform: rotateY(90deg);
+}
+
+nav ul li .span1::before {
+    content: 'A';
+}
+
+nav ul li .span1::after {
+    content: 'B';
+}
