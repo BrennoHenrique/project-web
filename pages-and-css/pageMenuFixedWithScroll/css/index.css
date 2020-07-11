@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    height: 130px;
+    background: linear-gradient(45deg, black 97%, white 3%);
+}
+
+header ul {
+    width: 100%;
+    height: 100%;
+    color: white;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li span {
+    box-shadow: 0px 0px 300px white;
+    position: relative;
+}
+
+ul li:nth-child(2) {
+    margin-left: 5px;
+}
+
+ul li span,
+ul li span::before,
+ul li span::after {
+    transition: all .5s linear;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+ul li span::before,
+ul li span::after {
+    border: 3px solid rgb(255, 255, 255);
+    background: linear-gradient(45deg, #000, #222);
+    background-color: white;
+    content: "";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*  */
+ul li .span-left::before {
+    content: 'B';
+    transform-origin: top;
+    animation: rotate-visible-bottom-left 4s 5s normal;
+}
+
+ul li .span-left::after {
+    content: 'B';
+    transform-origin: bottom;
+    bottom: 100px;
+    transform: rotateX(90deg);
+    animation: rotate-top-visible-left 4s 5s normal;
+}
+
+@keyframes rotate-top-visible-left {
+    50% {
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        bottom: 100px;
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes rotate-visible-bottom-left {
+    50% {
+        margin-top: 100px;
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        margin-top: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+/*  */
+
+/*  */
+ul li .span-right::before {
+    content: 'H';
+    transform-origin: bottom;
+    bottom: 0;
+    animation: rotate-visible-top-right 4s 5s normal;
+}
+
+ul li .span-right::after {
+    content: 'H';
+    transform-origin: top;
+    top: 100px;
+    transform: rotateX(90deg);
+    animation: rotate-bottom-visible-right 4s 5s normal;
+}
+
+@keyframes rotate-bottom-visible-right {
+    50% {
+        top: 0px;
+        transform: rotateX(0deg);
+    }
+
+    100% {
+        top: 100px;
+        transform: rotateX(90deg);
+    }
+}
+
+@keyframes rotate-visible-top-right {
+    50% {
+        bottom: 100px;
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        bottom: 0px;
+        transform: rotateX(0deg);
+    }
+}
+
+/*  */
+.box-menu {
+    width: 100vw;
+    height: 70px;
+    background: linear-gradient(black, rgb(44, 32, 32));
+}
+
+.box-menu ul {
+    transition: all .5s linear;
+    width: 130px;
+    height: 100%;
+    background: linear-gradient(black, rgb(44, 32, 32));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+.box-menu ul li span {
+    position: relative;
+}
+
+.box-menu .span-left,
+.box-menu .span-left::before,
+.box-menu .span-left::after,
+.box-menu .span-right,
+.box-menu .span-right::before,
+.box-menu .span-right::after {
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 1.5em;
+    animation: none;
+}
+
+.box-menu ul li:nth-child(1) {
+    margin-left: 20px;
+}
+
+.box-menu .span-left::after {
+    bottom: 50px;
+}
+
+.box-menu .span-right::after {
+    top: 50px;
+}
+
+
+section {
+    width: 100vw;
+    height: 1400px;
+}
